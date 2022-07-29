@@ -6,7 +6,7 @@
         {
             List<AddressBookInformation> list = new List<AddressBookInformation>();
             Console.WriteLine("AddressBook Information");
-            Console.WriteLine("1.RetriveAllInfoFromAddressBook\n2.Retrive based on city");
+            Console.WriteLine("1.RetriveAllInfoFromAddressBook\n2.Retrive based on city\n3.updating the data\n4.deleting data using city name\n5.Count by AddressBook or state\n6.count by city");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
@@ -19,7 +19,25 @@
                     AddingDataToAddressBook(list);
                     Console.WriteLine("after retriving data according to city or state");
                     AddressBookRepo.RetriveBasedOnCity(list);
+                    break;
+                case 3:
+                    Console.WriteLine("Before updating");
+                    AddingDataToAddressBook(list);
+                    AddressBookRepo.UpdateData(list);
+                    Console.WriteLine("Aftre updating");
+                    AddingDataToAddressBook(list);
+                    break;
+                case 4:
 
+                    AddressBookRepo.DeleteData(list);
+                    break;
+                case 5:
+                    AddingDataToAddressBook(list);
+                    AddressBookRepo.GetCountByAddressBookType(list);
+                    break;
+                case 6:
+                    AddingDataToAddressBook(list);
+                    AddressBookRepo.GetCountByCity(list);
                     break;
             }
         }
