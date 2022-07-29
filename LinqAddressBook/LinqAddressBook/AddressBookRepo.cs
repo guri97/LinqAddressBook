@@ -74,6 +74,13 @@ namespace Day33_LinqAddressBook
                 Console.WriteLine("AddressBook Type =" + contactlist.BookType + " --> " + "AddressBook_Count = " + contactlist.BookTypeCount);
             }
         }
+        public static void RetriveBysortingAlphabetically(List<AddressBookInformation> list)
+        {
+            Console.WriteLine("\nSorted Order");
+            //here we are using method syntax
+            //here we are retriving the product review based on the higest rating for that we are sortin gthe list in desending oredr
+            List<AddressBookInformation> sortedList = (from contacts in list orderby contacts.FirstName ascending select contacts).ToList();
+            Program.RetriveAllData(sortedList);
+        }
     }
-
 }

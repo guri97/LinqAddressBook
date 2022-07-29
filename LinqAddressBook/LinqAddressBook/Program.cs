@@ -6,7 +6,8 @@
         {
             List<AddressBookInformation> list = new List<AddressBookInformation>();
             Console.WriteLine("AddressBook Information");
-            Console.WriteLine("1.RetriveAllInfoFromAddressBook\n2.Retrive based on city\n3.updating the data\n4.deleting data using city name\n5.Count by AddressBook or state\n6.count by city");
+            Console.WriteLine("1.RetriveAllInfoFromAddressBook\n2.Retrive based on city\n3.updating the data\n4.deleting data using city name\n5.Count by AddressBook or state\n" +
+                "6.count by city\n7.sort list alphabetically");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
@@ -38,6 +39,10 @@
                 case 6:
                     AddingDataToAddressBook(list);
                     AddressBookRepo.GetCountByCity(list);
+                    break;
+                case 7:
+                    AddingDataToAddressBook(list);
+                    AddressBookRepo.RetriveBysortingAlphabetically(list);
                     break;
             }
         }
