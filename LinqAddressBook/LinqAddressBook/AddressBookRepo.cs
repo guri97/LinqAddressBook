@@ -76,11 +76,44 @@ namespace Day33_LinqAddressBook
         }
         public static void RetriveBysortingAlphabetically(List<AddressBookInformation> list)
         {
-            Console.WriteLine("\nSorted Order");
-            //here we are using method syntax
-            //here we are retriving the product review based on the higest rating for that we are sortin gthe list in desending oredr
-            List<AddressBookInformation> sortedList = (from contacts in list orderby contacts.FirstName ascending select contacts).ToList();
-            Program.RetriveAllData(sortedList);
+            try
+            {
+                Console.WriteLine("\nSorted Order");
+                //here we are using method syntax
+                //here we are retriving the product review based on the higest rating for that we are sortin gthe list in desending oredr
+                List<AddressBookInformation> sortedList = (from contacts in list orderby contacts.FirstName ascending select contacts).ToList();
+                Program.RetriveAllData(sortedList);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public static void RetirveNameAndType(List<AddressBookInformation> list)
+        {
+            var countData = list.AsEnumerable().GroupBy(BookType => BookType.AddressBookType).
+                Select(BookType => new
+                {
+                    BookType = BookType.Key,
+                    //BookTypeCount = BookType.FirstName
+                });
+            foreach (var contactlist in countData)
+            {
+                Console.WriteLine("AddressBook Type =" + contactlist.BookType);
+            }
+            var NameData = list.AsEnumerable().GroupBy(BookType => BookType.FirstName).
+                Select(BookType => new
+                {
+                    BookType = BookType.Key,
+                    //BookTypeCount = BookType.FirstName
+                });
+            foreach (var contactlist in NameData)
+            {
+                Console.WriteLine("FirstName =" + contactlist.BookType);
+            }
+
+
+
         }
     }
 }

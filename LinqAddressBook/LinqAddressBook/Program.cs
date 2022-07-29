@@ -7,7 +7,7 @@
             List<AddressBookInformation> list = new List<AddressBookInformation>();
             Console.WriteLine("AddressBook Information");
             Console.WriteLine("1.RetriveAllInfoFromAddressBook\n2.Retrive based on city\n3.updating the data\n4.deleting data using city name\n5.Count by AddressBook or state\n" +
-                "6.count by city\n7.sort list alphabetically");
+                "6.count by city\n7.sort list alphabetically\n8.RetriveTypesAndNames");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
@@ -44,6 +44,11 @@
                     AddingDataToAddressBook(list);
                     AddressBookRepo.RetriveBysortingAlphabetically(list);
                     break;
+                case 8:
+                    AddingDataToAddressBook(list);
+                    AddressBookRepo.RetirveNameAndType(list);
+                    break;
+
             }
         }
         public static void RetriveAllData(List<AddressBookInformation> list)
