@@ -6,7 +6,7 @@
         {
             List<AddressBookInformation> list = new List<AddressBookInformation>();
             Console.WriteLine("AddressBook Information");
-            Console.WriteLine("1.AddingInfoToList\n2.RetriveAllInfoFromAddressBook");
+            Console.WriteLine("1.RetriveAllInfoFromAddressBook\n2.Retrive based on city\nupdating the data");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
@@ -15,7 +15,17 @@
                     Console.WriteLine("data addes sussesFully");
                     break;
                 case 2:
-
+                    Console.WriteLine("before retriving data according to city or state");
+                    AddingDataToAddressBook(list);
+                    Console.WriteLine("after retriving data according to city or state");
+                    AddressBookRepo.RetriveBasedOnCity(list);
+                    break;
+                case 3:
+                    Console.WriteLine("Before updating");
+                    AddingDataToAddressBook(list);
+                    AddressBookRepo.UpdateData(list);
+                    Console.WriteLine("Aftre updating");
+                    AddingDataToAddressBook(list);
                     break;
             }
         }
