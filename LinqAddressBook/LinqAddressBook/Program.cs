@@ -6,7 +6,7 @@
         {
             List<AddressBookInformation> list = new List<AddressBookInformation>();
             Console.WriteLine("AddressBook Information");
-            Console.WriteLine("1.RetriveAllInfoFromAddressBook\n2.Retrive based on city\nupdating the data");
+            Console.WriteLine("1.RetriveAllInfoFromAddressBook\n2.Retrive based on city\n3.updating the data\n4.deleting data using city name");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
@@ -26,6 +26,10 @@
                     AddressBookRepo.UpdateData(list);
                     Console.WriteLine("Aftre updating");
                     AddingDataToAddressBook(list);
+                    break;
+                case 4:
+
+                    AddressBookRepo.DeleteData(list);
                     break;
             }
         }
